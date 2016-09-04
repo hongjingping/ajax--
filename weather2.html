@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>萍-weather</title>
+    <style>
+        table {
+            margin-top: 20px;
+            width: 600px;
+            border-collapse: collapse;
+        }
+        td,th{
+            height: 50px;
+            text-align: center;
+            border: 1px solid #CCC;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="city"/>
+<a href="javascript:;" id="search">天气查询</a>
+    <table>
+        <thead>
+        <tr>
+            <th>日期</th>
+            <th>白天</th>
+            <th>晚上</th>
+            <th>温度</th>
+            <th>天气</th>
+            <th>风力</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+        <!--/*5.书写HTML结构:thead有6个th对应着tbody中的6个td,外面用tr进行包裹*/
+       /*7.遍历list，得到每一个数据*/
+       /*8.将每一个对象的数据放到td中，参数去文档中查看*/
+       /*9.得到数组中的每一项*/-->
+    <script type="text/template" id="template">
+
+        <% for(var i=0;i< list.length; i++){ %>
+        <tr>
+            <% var item = list[i]; %>
+            <td><%= item.date%></td>
+            <td><img src="<%= item.dayPictureUrl%>" alt=""></td>
+            <td><img src="<%= item.nightPictureUrl%>" alt=""></td>
+            <td><%= item.temperature%></td>
+            <td><%= item.weather%></td>
+            <td><%= item.wind%></td>
+        </tr>
+        <% } %>
+    </script>
+<script src="jquery-1.12.4.js"></script>
+<script src="template-native.js"></script>
+    <script>
+        /*
+         * 1.查看百度提供的天气接口文档
+         * 2.书写HTML结构
+         * 3.引入我们的jQuery和原生的模板JS
+         * 4.书写代码
+         * 5.渲染模板
+         * */
+        $(function () {
+           /*注册search的点击事件*/
+            $('#search').click(function () {
+                /*1.调用ajax*/
+                $.ajax({
+                    type:'get',
+                    url:'http://api.map.baidu.com/telematics/v3/weather?output=json&ak=0A5bc3c4fb543c8f9bc54b77bc155724',
+                    //2.发送的数据
+                    data:{
+                        location:$('#city').val() || '上海'
+                    },
+                    //3.返回的数据类型，跨域
+                    dataType:'jsonp',
+                    //4.响应成功的函数
+                    success: function (data) {
+                        console.log(data);
+                        //6.将模板渲染页面,template模板有2个参数，第一个是id名，第二个是返回的数据data,我们需要的数据一般都放在results里面，(因为返回的是数组，我们用list进行包裹，我们要对模板中的数据进行遍历,得到其中的每一个数据)
+                        var html = template('template',{list:data.results[0].weather_data});
+                        /*10.渲染到tbody页面中*/
+                        $('tbody').html(html);
+                    }
+                })
+            })
+        });
+    </script>
+</body>
+</html>

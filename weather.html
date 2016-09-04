@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气预报</title>
+    <style>
+        table {
+            margin-top: 20px;
+            width: 600px;
+            border-collapse: collapse;
+        }
+        td,th{
+            height: 50px;
+            text-align: center;
+            border: 1px solid #CCC;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="city"/>
+    <a href="javascript:;" id="search">天气查询</a>
+<table>
+    <thead>
+    <tr>
+        <th>日期</th>
+        <th>白天</th>
+        <th>晚上</th>
+        <th>温度</th>
+        <th>天气</th>
+        <th>风力</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script type="text/template" id="template">
+    //通过for循环得到每一个元素，并且进行赋值
+    <% for(var i = 0 ;i < list.length ; i++ ){ %>
+    <tr>
+        //得到每一个元素
+        <%var item = list[i];%>
+        //输出日期
+        <td><%= item.date %></td>
+        //得到白天的图片
+        <td><img src="<%= item.dayPictureUrl %>" alt=""></td>
+        //得到晚上的图片
+        <td><img src="<%= item.nightPictureUrl %>" alt=""></td>
+        //得到温度
+        <td><%= item.temperature%></td>
+        //得到天气
+        <td><%= item.weather%></td>
+        //得到风力
+        <td><%= item.wind%></td>
+    </tr>
+    <% } %>
+</script>
+
+<script src="jquery-1.12.4.js"></script>
+<!--原生的模板与jQuery是类似的，语法也很接近-->
+<script src="template-native.js"></script>
+<script>
+   /*
+   * 1.引入jQuery和原生的模板
+   * 2.书写JS代码
+   * 2.1获取城市
+   * 2.2发送json请求
+   * 2.3渲染HTML页面
+   * */
+    $(function () {
+        //注册按钮的点击事件
+        $('#search').click(function () {
+            //调用ajax，发送数据请求
+            $.ajax({
+                type:'get',
+                //接口地址
+                url: 'http://api.map.baidu.com/telematics/v3/weather?output=json&ak=0A5bc3c4fb543c8f9bc54b77bc155724',
+                //data发送请求数据
+                data:{
+                    location:$('#city').val()|| '上海'
+                },
+                //datatype服务器返回的数据格式
+                dataType:'jsonp',
+                //成功响应后调用
+                success: function (data) {
+                    //书写模板并且进行渲染
+                    var html = template('template',{list:data.results[0].weather_data});
+                    $('tbody').html(html);
+                },
+                //错误响应时调用
+                error: function (data) {
+                    
+                },
+                //响应完成时调用
+                conplete: function (data) {
+
+                }
+
+            })
+        })
+    });
+    //1.接口url: 'http://api.map.baidu.com/telematics/v3/weather?output=json&ak=0A5bc3c4fb543c8f9bc54b77bc155724',
+    //2.百度提供的第三方接口地址：接口参数说明，返回的结果，返回的格式（xml/json）........
+    //3.ajax:把服务器数据按照自己的业务逻辑渲染到当前的页面中
+    //4.查看参数，看当前的接口，就扣参数的前两个必须填写，我们加在URL后面，传秘钥ak=....还有返回的格式output=json
+    //5.data没有放到URL后面，单独拿出来用data传递。传递城市需要查看接口，location:$('#city').val()
+    //6.dataType:'jsonp'->跨域请求
+    //7.调用success函数，打印出响应回来的data，返回的是object，我们就不用进行转换了
+    //8.results里面是我们需要的数据，里面有一个对象，打印data.results 是一个数组，data.results[0]是一个对象，data.results[0].weather_data打印出四个对象，就是我们真正需要的东西
+    //9.定义模板：6个td用tr包裹
+    //10.渲染模板：var html = template('template',),template里面有2个参数，第一个是id，第二个是传data，此时我们的data是数组，我们在外面包一层{list:data.results[0].weather_data},遍历list就可以
+    //11.遍历模板的list
+        // <% for(var i=0;i<list.length;i++){ %>
+        //<tr>........<tr>
+        // <% } %>
+    //12.将HTML渲染到页面$('tbody').html(html);
+</script>
+</body>
+</html>

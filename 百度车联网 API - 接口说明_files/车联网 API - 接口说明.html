@@ -1,0 +1,460 @@
+<!DOCTYPE hmtl>
+<!-- saved from url=(0043)http://developer.baidu.com/map/carapi-7.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>车联网 API - 接口说明</title>
+    <script type="text/javascript" src="./车联网 API - 接口说明_files/mapnav.js"></script><link href="./车联网 API - 接口说明_files/mapapi.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./车联网 API - 接口说明_files/mapi.css" type="text/css" media="screen">
+	 <script type="text/javascript" src="./车联网 API - 接口说明_files/jquery-1.7.2.min.js"></script>
+	 <script type="text/javascript" src="./车联网 API - 接口说明_files/menu.js"></script>
+	 <script type="text/javascript" src="./车联网 API - 接口说明_files/mapi.js"></script>
+<script src="./车联网 API - 接口说明_files/guide.js" type="text/javascript" charset="utf-8"></script></head>
+<body>
+<script type="text/javascript">
+mnav({
+    one_nav:"mapnav_product",
+    two_nav:"mapnav_car"
+});
+</script><div id="header"><div class="top-bg"><div class="top-mid"><a class="martop5 l" href="http://developer.baidu.com/map/"><img src="http://lbc.baidu.com/static/cms/images/logo.png"></a><div id="logins">
+<ul class="user-nav">
+<li class="user-nav-item " id="user-state-li" style="display:none">
+<a id="userName"></a><label>|</label>
+<ul class="username-dropdown" style="visibility: hidden;">
+<li><a target="_top" href="http://passport.baidu.com/center" class="bd-cloud-dropdown-link">帐号设置</a></li>
+<li><a target="_top" href="http://developer.baidu.com/map/carapi-7.htm" id="logout">退出</a></li>
+<div class="clear"></div>
+</ul>
+<div class="clear"></div>
+</li>
+<li class="user-nav-item">
+<a target="_blank" href="http://lbsyun.baidu.com/apiconsole/key" style="color:#EF4142;">API控制台</a><label>|</label>
+</li><li class="user-nav-item"><a target="_blank" href="http://developer.baidu.com/">百度开放云</a>
+</li><li id="login-reg-li" class="user-nav-item" style="display:none;">
+<label id="dot-line">|</label><a id="login" href="http://developer.baidu.com/map/carapi-7.htm" target="_top">登录</a>
+<a id="register" href="http://developer.baidu.com/map/carapi-7.htm" target="_top">注册</a>
+</li><div class="clear"></div></ul></div>
+</div></div><div id="top_main">
+<div id="nav">
+<ul class="navul">
+<li>
+<a id="mapnav_home" href="http://developer.baidu.com/map/index.html">首页</a>
+</li>
+<li class=" nav_on" id="mapnav_product"><a href="http://developer.baidu.com/map/lbs-cloud.htm">开发</a><div id="homeTab1" class="homeTab"><dl><dt class="l">web开发</dt><dd><a target="_blank" href="http://developer.baidu.com/map/jshome.htm">JavaScript API大众版</a><a target="_blank" href="http://developer.baidu.com/map/jsmobile.htm">JavaScript API极速版</a><a target="_blank" href="http://developer.baidu.com/map/webcomponents.htm">Web组件 API</a><a target="_blank" href="http://developer.baidu.com/map/library.htm">JavaScript API开源库</a><a target="_blank" href="http://developer.baidu.com/map/flash.htm">Flash API</a><div class="clear"></div></dd></dl><dl><dt class="l">APP开发</dt><dd><a target="_blank" href="http://developer.baidu.com/map/sdk-android.htm">Android地图SDK</a><a target="_blank" href="http://developer.baidu.com/map/geosdk.htm">Android定位SDK</a><a target="_blank" href="http://developer.baidu.com/map/navsdk.htm">Android导航SDK</a><a target="_blank" href="http://developer.baidu.com/map/sdk-ios.htm">iOS地图SDK</a><a target="_blank" href="http://developer.baidu.com/map/sdk-nav-ios.htm">iOS导航SDK</a><div class="clear"></div></dd></dl><dl><dt class="l">服务接口</dt><dd><a target="_blank" href="http://developer.baidu.com/map/lbs-cloud.htm">LBS云</a><a target="_blank" href="http://developer.baidu.com/map/webservice.htm">Web服务API</a><a target="_blank" href="http://developer.baidu.com/map/staticimg.htm">静态图API</a><a target="_blank" href="http://developer.baidu.com/map/carhome.htm">车联网API</a><a target="_blank" href="http://developer.baidu.com/map/uri.htm">URI API</a><div class="clear"></div></dd></dl><dl style="margin-bottom:0;"><dt class="l">工具支持</dt><dd><a target="_blank" href="http://lbsyun.baidu.com/apiconsole/key">API控制台</a><a target="_blank" href="http://lbsyun.baidu.com/datamanager/datamanage">LBS云可视化编辑器</a><a target="_blank" href="http://api.map.baidu.com/lbsapi/getpoint/index.html">坐标拾取器</a><a target="_blank" href="http://api.map.baidu.com/lbsapi/creatmap/index.html">地图生成器</a><a target="_blank" href="http://api.map.baidu.com/mapCard">地图名片</a><a target="_blank" href="http://api.map.baidu.com/lbsapi/tuan/index.html">团购插件</a><a target="_blank" href="http://developer.baidu.com/map/move.htm">零成本搬家工具</a><a target="_blank" href="http://developer.baidu.com/map/img-editor.html">底图编辑工具</a><div class="clear"></div></dd></dl></div></li><li class="nav-item" id="mapnav_success"><a href="http://developer.baidu.com/map/openmap.htm">推广</a><div class="homeTab"><ul><li style="width:250px;"><a target="_blank" href="http://developer.baidu.com/map/openmap.htm">Openmap计划</a></li><li style="width:250px;"><a target="_blank" href="http://developer.baidu.com/map/case.htm">行业解决方案</a></li><li style="width:250px;"><a target="_blank" href="http://developer.baidu.com/map/case-more.htm">成功案例展示</a></li><li style="width:250px;"><a target="_blank" href="http://developer.baidu.com/map/baiduplan.htm">百度优先收录计划</a></li><div class="clear"></div></ul></div></li><li><a href="http://developer.baidu.com/map/cash.htm">变现</a></li><li class="nav-item" id="mapnav_support"><a href="http://developer.baidu.com/map/help_index.html">社区</a><div class="homeTab"><ul><li><a target="_blank" href="http://bbs.lbsyun.baidu.com/">技术论坛</a></li><li><a target="_blank" href="http://lbsyun.baidu.com/news">新闻动态</a></li><li><a target="_blank" href="http://developer.baidu.com/map/help_index.html">商务合作</a></li><li><a target="_blank" href="http://bbs.lbsyun.baidu.com/">咨询反馈</a></li><div class="clear"></div></ul></div></li><li><a target="_blank" href="http://renqi.map.baidu.com/">人气</a></li><li><a target="_blank" href="http://huiyan.baidu.com/">慧眼</a></li></ul>
+<div class="search"><a href="javascript:void(0);" class="searchBtn r" id="searchBtn"></a><div class="inputbox"><input type="text" class="searchcontent" id="apisearchContent"></div></div></div>
+</div>
+<div class="clear"></div>
+<div id="headTop">
+<div id="headeTop_main">
+<ul id="mapnav_tool_two">
+<li id="mapnav_creatmap"><a href="http://api.map.baidu.com/lbsapi/creatmap/index.html">地图生成器</a><b>|</b></li>
+<li id="mapnav_getpoint"><a href="http://api.map.baidu.com/lbsapi/getpoint/index.html">坐标拾取工具</a><b>|</b></li>
+<li id="mapnav_mapcard"><a href="http://api.map.baidu.com/mapCard/">地图名片</a><b>|</b></li>
+<li id="mapnav_tuan"><a href="http://api.map.baidu.com/lbsapi/tuan/index.html">团购插件</a><b>|</b></li>
+<li id="mapnav_move"><a href="http://developer.baidu.com/map/move.htm">零成本搬家</a></li></ul>
+<ul id="mapnav_support_two">
+<li><a target="_blank" href="http://bbs.lbsyun.baidu.com/">技术论坛</a><b>|</b></li><li><a target="_blank" href="http://lbsyun.baidu.com/news">新闻动态</a><b>|</b></li><li id="mapnav_help"><a href="http://developer.baidu.com/map/help_index.html">商务合作</a><b>|</b></li><li id="mapnav_suggest"><a href="http://bbs.lbsyun.baidu.com/">咨询反馈</a></li></ul>
+<ul id="mapnav_success_two">
+<li id="mapnav_openmap"><a href="http://developer.baidu.com/map/openmap.htm">Openmap计划</a> <a href="http://developer.baidu.com/map/openmap-1.htm">文档</a><b>|</b></li>
+<li id="mapnav_houseProperty"><a href="http://developer.baidu.com/map/case.htm">行业解决方案</a><b>|</b></li>
+<li id="mapnav_more_case"><a href="http://developer.baidu.com/map/case-more.htm">成功案例</a><b>|</b></li>
+<li id="mapnav_baiduplan"><a href="http://developer.baidu.com/map/baiduplan.htm">百度优先收录计划</a><b></b></li>
+</ul>
+<ul id="mapnav_product_two" style="display: block;">
+<li id="mapnav_yun"><a href="http://developer.baidu.com/map/lbs-cloud.htm">LBS.云</a><b>|</b></li>
+<li id="mapnav_javascript" class="nav-item"><a class="Top_two_triangle" href="http://developer.baidu.com/map/jshome.htm">JavaScript API</a><div class="homeTab webTab">
+<ul>
+<li><a style="color:#000" href="http://developer.baidu.com/map/jshome.htm">JavaScript API大众版</a></li>
+<li><a style="color:#000" href="http://developer.baidu.com/map/jsmobile.htm">JavaScript API极速版</a></li>
+<li><a style="color:#000" href="http://developer.baidu.com/map/webcomponents.htm">Web组件 API</a></li>
+<li><a style="color:#000" href="http://developer.baidu.com/map/library.htm">JavaScript API开源库</a></li>
+<div class="clear"></div>
+</ul>
+</div>
+</li>
+<li id="mapnav_flash"><a href="http://developer.baidu.com/map/flash.htm">Flash API</a><b>|</b></li>
+<li>
+<ul>
+<li id="mapnav_and" class="nav-item"><a href="http://developer.baidu.com/map/sdk-android.htm" class="Top_two_triangle">Android 平台</a>
+<div class="homeTab webTab">
+<ul>
+<li><a href="http://developer.baidu.com/map/sdk-android.htm">Android SDK</a></li>
+<li><a href="http://developer.baidu.com/map/geosdk.htm">定位 SDK</a></li>
+<li><a href="http://developer.baidu.com/map/navsdk.htm">导航 SDK</a></li>
+<li><a href="http://developer.baidu.com/map/andsdk_review.html">全景 SDK</a></li>
+<li><a href="http://developer.baidu.com/map/android-fullnavsdk.htm">离线导航</a></li>
+<div class="clear"></div>
+</ul>
+</div>
+</li>
+<li id="mapnav_ios" class="nav-item"><a class="Top_two_triangle" href="http://developer.baidu.com/map/sdk-ios.htm">iOS SDK</a><div class="homeTab webTab">
+<ul>
+<li><a href="http://developer.baidu.com/map/sdk-ios.htm">iOS SDK</a></li>
+<li><a href="http://developer.baidu.com/map/sdk-nav-ios.htm">iOS 导航 SDK</a></li>
+<li><a href="http://developer.baidu.com/map/sdk-pano-ios.htm">iOS 全景 SDK</a></li>
+<li><a href="http://developer.baidu.com/map/ios-fullnavsdk.htm">iOS离线导航</a></li>
+<div class="clear"></div>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li id="mapnav_web" class="nav-item"><a href="http://developer.baidu.com/map/webservice.htm" class="Top_two_triangle">Web服务API</a>
+<div class="homeTab webTab" style="display: none;">
+<ul>
+<li><a href="http://developer.baidu.com/map/webservice-placeapi.htm">Place API</a></li>
+<li><a href="http://developer.baidu.com/map/place-suggestion-api.htm">Place suggestion API</a></li>
+<li><a href="http://developer.baidu.com/map/webservice-geocoding.htm">Geocoding API</a></li>
+<li><a href="http://developer.baidu.com/map/direction-api.htm">Direction API</a></li>
+<li><a href="http://developer.baidu.com/map/route-matrix-api.htm">Route Matrix API</a></li>
+<li><a href="http://developer.baidu.com/map/ip-location-api.htm">IP定位 API</a></li>
+<li><a href="http://developer.baidu.com/map/changeposition.htm">坐标转换 API</a></li>
+<div class="clear"></div>
+</ul>
+</div>
+</li>
+<li id="mapnav_static" class="nav-item"><a href="http://developer.baidu.com/map/staticimg.htm" class="Top_two_triangle">静态图API</a>
+<div class="homeTab webTab">
+<ul>
+<li><a href="http://developer.baidu.com/map/staticimg.htm">静态图 API</a></li>
+<li><a href="http://developer.baidu.com/map/viewstatic.htm">全景静态图 API</a></li>
+</ul>
+</div>
+</li>
+<li id="mapnav_car" class=" Top_on"><a href="http://developer.baidu.com/map/carhome.htm" class="Top_two">车联网API</a></li>
+<li id="mapnav_uri"><a href="http://developer.baidu.com/map/uri.htm">URI API</a></li>
+</ul>
+</li>
+</ul>
+</div></div></div><div class="clear"></div><script src="./车联网 API - 接口说明_files/login.js"></script>
+<div class="mbody">
+    <div class="mbread clearfix">
+        <a href="http://developer.baidu.com/map/carapi-7.htm#">您当前的位置</a>：<a href="http://developer.baidu.com/map/carhome.htm">车联网 API</a>&gt;<a href="http://developer.baidu.com/map/carapi-1.htm">接口说明</a>
+    </div>
+    <div class="mwrapper clearfix">
+        <div class="mmenu" style="position: static; top: 246px;">
+           <script type="text/javascript">
+                    addMenu_car();
+                    addClass_on2('carapimenu_1');
+                    addClass_on('carapimenu_17');
+                    displayBlock('car_api_menu');
+                </script><ul><li id="jsmenu_0" class="mm14"><a href="http://developer.baidu.com/map/carhome.htm">概述</a></li><li id="jsmenu_11" class="mm14"><a href="http://lbsyun.baidu.com/apiconsole/key?application=key" target="_blank">获取密钥</a></li><li id="jsmenu_1" class="mm11"><a href="javascript:void(0);" onclick="Contextdisplay(&#39;msubmenu&#39;);">开发指南</a><div class="msubmenu" id="msubmenu"><ul><li id="jsmenu_11"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/guide/introduction">简介</a></li></ul></div></li><li id="carapimenu_1" class="mm11 on2"><a href="javascript:void(0);" onclick="Contextdisplay(&#39;car_api_menu&#39;);">接口说明</a><div class="msubmenu" id="car_api_menu" style="display: block;"><ul><li id="carapimenu_111"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/tocar">发送到车</a></li><li id="carapimenu_11"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/geocoding">Geocoding</a></li><li id="carapimenu_12"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/anti-geocoding">反Geocoding</a></li><li id="carapimenu_13"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/interest">兴趣点检索</a></li><li id="carapimenu_14"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/surrounding">周边检索</a></li><li id="carapimenu_15"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/driving">驾车检索</a></li><li id="carapimenu_16"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/distance">测距</a></li><li id="carapimenu_17" class="on"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/weather">天气查询</a></li><li id="carapimenu_18"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/traffic">交通事件查询</a></li><li id="carapimenu_19"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/road">途径路段查询</a></li><li id="carapimenu_112"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/tourism">旅游线路查询</a></li><li id="carapimenu_113"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/scenic">景点详情</a></li><li id="carapimenu_114"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/movie">热映影片</a></li><li id="carapimenu_115"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/movieinfo">影片影讯检索</a></li><li id="carapimenu_116"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/cinemainfo">影院影讯检索</a></li><li id="carapimenu_117"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/near-cinema">周边影院检索</a></li><li id="carapimenu_110"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/api/appendix">附录</a></li></ul></div></li><li id="jsmenu_4" class="mm14"><a href="http://developer.baidu.com/map/wiki/index.php?title=car/theupdatelog">更新日志</a></li><li id="jsmenu_12" class="mm14"><a href="http://developer.baidu.com/map/car-success.htm">成功案例</a></li><li id="jsmenu_6" class="mm14"><a href="http://developer.baidu.com/map/car-download.htm">相关下载</a></li></ul>
+        </div>
+        <div class="mcontainer">
+            <h1>天气查询</h1>
+            <div class="mcatalog">
+                <ol>
+                    <li class="mcatalog_odd_item"><a href="http://developer.baidu.com/map/carapi-7.htm#.E4.BB.80.E4.B9.88.E6.98.AF.E7.99.BE.E5.BA.A6.E5.9C.B0.E5.9B.BEAPI.EF.BC.9F">1.接口说明</a></li>
+                    <li class="mcatalog_even_item"><a href="http://developer.baidu.com/map/carapi-7.htm#.E9.9D.A2.E5.90.91.E7.9A.84.E8.AF.BB.E8.80.85">2.接口示例</a></li>
+                    <li class="mcatalog_odd_item"><a href="http://developer.baidu.com/map/carapi-7.htm#.E5.9D.90.E6.A0.87.E8.BD.AC.E6.8D.A2">3.接口参数说明</a></li>
+                    <li class="mcatalog_even_item"><a href="http://developer.baidu.com/map/carapi-7.htm#.E8.8E.B7.E5.8F.96API">4.返回结果<img src="./车联网 API - 接口说明_files/new.png"></a></li>
+                    <li class="mcatalog_odd_item"><a href="http://developer.baidu.com/map/carapi-7.htm#.E5.BC.80.E5.8F.91.E7.A7.BB.E5.8A.A8.E5.B9.B3.E5.8F.B0.E4.B8.8A.E7.9A.84.E5.9C.B0.E5.9B.BE.E5.BA.94.E7.94.A8">5.返回xml格式的数据</a></li>
+					<li class="mcatalog_even_item"><a href="http://developer.baidu.com/map/carapi-7.htm#.E5.BC.82.E6.AD.A5.E5.8A.A0.E8.BD.BD">6.返回json格式的数据</a></li>                    
+                </ol>
+            </div>
+            <div class="mcontent">
+                <h2 id=".E4.BB.80.E4.B9.88.E6.98.AF.E7.99.BE.E5.BA.A6.E5.9C.B0.E5.9B.BEAPI.EF.BC.9F">接口说明</h2>
+                <p>根据经纬度/城市名查询天气的结果</p>
+                <h2 id=".E9.9D.A2.E5.90.91.E7.9A.84.E8.AF.BB.E8.80.85">接口示例</h2>
+                <pre><a href="http://api.map.baidu.com/telematics/v3/weather?location=%E5%8C%97%E4%BA%AC&amp;output=json&amp;ak=E4805d16520de693a3fe707cdc962045" target="_blank">http://api.map.baidu.com/telematics/v3/weather?location=北京&amp;output=json&amp;ak=yourkey</a></pre>
+				<h2 id=".E5.9D.90.E6.A0.87.E8.BD.AC.E6.8D.A2">接口参数说明</h2>
+                
+				<table class="mplacetable"><tbody>
+				<tr>
+					<th width="60">参数类型</th><th width="150">参数名称</th><th width="60">是否必须</th><th>具体描述</th>
+				</tr>
+				<tr>
+					<td class="mcode">String</td>
+					<td>ak</td>
+					<td>true</td>
+					<td>开发者密钥</td>
+				</tr>
+                <tr>
+					<td class="mcode">String</td>
+					<td>sn</td>
+					<td>false</td>
+					<td>若用户所用ak的校验方式为sn校验时该参数必须。
+					（<a href="http://developer.baidu.com/map/lbs-appendix.htm#.appendix1" target="_blank">sn生成算法</a>）
+					</td>
+				</tr>
+                <tr>
+					<td class="mcode">String</td>
+					<td>location</td>
+					<td>true</td>
+					<td>输入城市名或经纬度，城市名称如:北京，经纬度格式为lng,lat坐标如: location=116.305145,39.982368;城市天气预报中间"|"分隔,location=116.305145,39.982368| 122.305145,36.982368|….</td>
+				</tr>
+                <tr>
+					<td class="mcode">String</td>
+					<td>output</td>
+					<td>false</td>
+					<td>输出的数据格式，默认为xml格式，当output设置为’json’时，输出的为json格式的数据;</td>
+				</tr>
+                <tr>
+					<td class="mcode">String</td>
+					<td>coord_type</td>
+					<td>false</td>
+					<td>请求参数坐标类型，默认为gcj02经纬度坐标。允许的值为bd09ll、bd09mc、gcj02、wgs84。bd09ll表示百度经纬度坐标，bd09mc表示百度墨卡托坐标，gcj02表示经过国测局加密的坐标。wgs84表示gps获取的坐标。</td>
+				</tr>
+                </tbody></table>
+				
+                <h2 id=".E8.8E.B7.E5.8F.96API">返回结果</h2>
+                <table class="mplacetable"><tbody>
+				<tr>
+					<th colspan="2" width="60px">参数名称</th><th width="200">含义</th><th>说明</th>
+				</tr>
+                <tr>
+					<td colspan="2" class="mcode">currentCity</td>
+					<td>当前城市</td>
+					<td>返回城市名</td>
+				</tr>
+                <tr>
+					<td colspan="2" class="mcode">status</td>
+					<td>返回结果状态信息</td>
+					<td></td>
+				</tr>
+                <tr>
+					<td colspan="2" class="mcode">date</td>
+					<td>当前时间</td>
+					<td>年-月-日</td>
+				</tr>
+                <tr>
+					<td colspan="2" class="mcode">results</td>
+					<td>天气预报信息</td>
+					<td>白天可返回近期3天的天气情况（今天、明天、后天）、晚上可返回近期4天的天气情况（今天、明天、后天、大后天）</td>
+				</tr>
+                <tr>
+					<td colspan="2" class="mcode">results.currentCity</td>
+					<td>当前城市</td>
+					<td></td>
+				</tr>
+                <tr>
+					<td rowspan="6" class="mcode">results.weather_data</td>
+                    <td class="mcode">weather_data.date</td>
+					<td>天气预报时间</td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td class="mcode">weather_data.dayPictureUrl</td>
+					<td>白天的天气预报图片url</td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td class="mcode">weather_data.nightPictureUrl</td>
+					<td>晚上的天气预报图片url</td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td class="mcode">weather_data.weather</td>
+					<td>天气状况</td>
+					<td>所有天气情况（”|”分隔符）：晴|多云|阴|阵雨|雷阵雨|雷阵雨伴有冰雹|雨夹雪|小雨|中雨|大雨|暴雨|大暴雨|特大暴雨|阵雪|小雪|中雪|大雪|暴雪|雾|冻雨|沙尘暴|小雨转中雨|中雨转大雨|大雨转暴雨|暴雨转大暴雨|大暴雨转特大暴雨|小雪转中雪|中雪转大雪|大雪转暴雪|浮尘|扬沙|强沙尘暴|霾</td>
+				</tr>
+                <tr>
+                    <td class="mcode">weather_data.wind</td>
+					<td>风力</td>
+					<td></td>
+				</tr>
+                <tr>
+                    <td class="mcode">weather_data.temperature</td>
+					<td>温度</td>
+					<td></td>
+				</tr>
+                </tbody></table>
+                <h2 id=".E5.BC.80.E5.8F.91.E7.A7.BB.E5.8A.A8.E5.B9.B3.E5.8F.B0.E4.B8.8A.E7.9A.84.E5.9C.B0.E5.9B.BE.E5.BA.94.E7.94.A8">返回xml格式的数据</h2>
+                <pre>&lt;CityWeatherResponse&gt;
+&lt;status&gt;success&lt;/status&gt;
+&lt;date&gt;2013-07-18&lt;/date&gt;
+&lt;results&gt;
+&lt;currentCity&gt;北京市&lt;/currentCity&gt;
+&lt;weather_data&gt;
+&lt;date&gt;周三(今天, 实时：24℃)&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/duoyun.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;多云&lt;/weather&gt;
+&lt;wind&gt;微风&lt;/wind&gt;
+&lt;temperature&gt;23℃~ 15℃&lt;/temperature&gt;
+&lt;date&gt;周四&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/leizhenyu.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/zhongyu.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;雷阵雨转中雨&lt;/weather&gt;
+&lt;wind&gt;微风&lt;/wind&gt;
+&lt;temperature&gt;29～22℃&lt;/temperature&gt;
+&lt;date&gt;周五&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/yin.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;阴转多云&lt;/weather&gt;
+&lt;wind&gt;微风&lt;/wind&gt;
+&lt;temperature&gt;31～23℃&lt;/temperature&gt;
+&lt;date&gt;周六&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/duoyun.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;多云&lt;/weather&gt;
+&lt;wind&gt;微风&lt;/wind&gt;
+&lt;temperature&gt;31～24℃&lt;/temperature&gt;
+&lt;/weather_data&gt;
+&lt;currentCity&gt;合肥市&lt;/currentCity&gt;
+&lt;weather_data&gt;
+&lt;date&gt;周三&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/duoyun.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;多云&lt;/weather&gt;
+&lt;wind&gt;东风3-4级&lt;/wind&gt;
+&lt;temperature&gt;27℃&lt;/temperature&gt;
+&lt;date&gt;周四&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/duoyun.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;多云&lt;/weather&gt;
+&lt;wind&gt;东北风3-4级&lt;/wind&gt;
+&lt;temperature&gt;35～27℃&lt;/temperature&gt;
+&lt;date&gt;周五&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/duoyun.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;多云&lt;/weather&gt;
+&lt;wind&gt;南风&lt;/wind&gt;
+&lt;temperature&gt;35～27℃&lt;/temperature&gt;
+&lt;date&gt;周六&lt;/date&gt;
+&lt;dayPictureUrl&gt;
+http://api.map.baidu.com/images/weather/day/duoyun.png
+&lt;/dayPictureUrl&gt;
+&lt;nightPictureUrl&gt;
+http://api.map.baidu.com/images/weather/night/duoyun.png
+&lt;/nightPictureUrl&gt;
+&lt;weather&gt;多云&lt;/weather&gt;
+&lt;wind&gt;东风&lt;/wind&gt;
+&lt;temperature&gt;34～27℃&lt;/temperature&gt;
+&lt;/weather_data&gt;
+&lt;/results&gt;
+&lt;/CityWeatherResponse&gt;
+&lt;weather&gt;阵雨&lt;/weather&gt;
+&lt;wind&gt;东北风3-4级&lt;/wind&gt;
+&lt;temperature&gt;18℃&lt;/temperature&gt;
+&lt;/result&gt;
+&lt;/results&gt;
+&lt;/CityWeatherResponse&gt;
+</pre>
+				<h2 id=".E5.BC.82.E6.AD.A5.E5.8A.A0.E8.BD.BD">返回json格式的数据</h2>
+                <pre>{
+error: 0,
+status: "success",
+date: "2013-07-17",
+results: 
+[
+{
+currentCity: "北京市",
+weather_data: 
+[
+{
+date: "周三(今天, 实时：24℃)",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/duoyun.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "多云",
+wind: "微风",
+temperature: "23℃~ 15℃"
+},
+{
+date: "明天（周四）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/leizhenyu.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/zhongyu.png",
+weather: "雷阵雨转中雨",
+wind: "微风",
+temperature: "29～22℃"
+},
+{
+date: "后天（周五）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/yin.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "阴转多云",
+wind: "微风",
+temperature: "31～23℃"
+},
+{
+date: "大后天（周六）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/duoyun.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "多云",
+wind: "微风",
+temperature: "31～24℃"
+}
+]
+},
+{
+currentCity: "合肥市",
+weather_data: 
+[
+{
+date: "今天（周三）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/duoyun.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "多云",
+wind: "东风3-4级",
+temperature: "27℃"
+},
+{
+date: "明天（周四）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/duoyun.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "多云",
+wind: "东北风3-4级",
+temperature: "35～27℃"
+},
+{
+date: "后天（周五）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/duoyun.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "多云",
+wind: "南风",
+temperature: "35～27℃"
+},
+{
+date: "大后天（周六）",
+dayPictureUrl: "http://api.map.baidu.com/images/weather/day/duoyun.png",
+nightPictureUrl: "http://api.map.baidu.com/images/weather/night/duoyun.png",
+weather: "多云",
+wind: "东风",
+temperature: "34～27℃"
+}
+]
+}
+]
+}
+</pre>
+        </div>  
+    </div>
+    </div>
+    <div class="mwrappend clearfix">&nbsp;</div><div class="copyright clearfix"><p>©2014 Baidu<a href="http://www.baidu.com/duty/">使用百度前必读</a><a target="_blank" href="http://www.miibeian.gov.cn/">京ICP证030173号</a><img src="./车联网 API - 接口说明_files/gs.gif"></p></div></div>
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5650c092812f8659cdfe23eeb42024ef' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="http://hm.baidu.com/h.js?5650c092812f8659cdfe23eeb42024ef" type="text/javascript"></script>
+
+b<div id="guideMask" style="width: 100%; height: 100%; position: fixed;"></div><div id="guideContainer" style="left: 127px; top: -23px;"><div class="guide_title"><span>亲爱的访客：<span class="high">免费！</span>木有商业版，木有收费版... 全国人民用的都一样!</span><div class="guide_close" onclick="closeGuide()"></div></div><div class="guide_content"><div id="guide_arrow"></div><div class="title">我是...</div><div class="item"><div class="item_left"><div class="guide_icon"><div class="programmer"></div></div><div class="guide_text"><div class="text_title">程序猿</div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide1&#39;)" href="http://developer.baidu.com/map/jshome.htm" target="_blank">Web程序猿</a><a onclick="_addStat(&#39;apidoc_guide2&#39;)" href="http://developer.baidu.com/map/sdk-android.htm" target="_blank">Android程序猿</a><a onclick="_addStat(&#39;apidoc_guide3&#39;)" href="http://developer.baidu.com/map/sdk-ios.htm" target="_blank">iOS程序猿</a><br><a onclick="_addStat(&#39;apidoc_guide4&#39;)" href="http://developer.baidu.com/map/webservice.htm" target="_blank">C#/C++/Java程序猿</a></div></div></div><div class="item_right"><div class="guide_icon"><div class="factory"></div></div><div class="guide_text"><div class="text_title">厂商</div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide5&#39;)" href="http://developer.baidu.com/map/carhome.htm" target="_blank">汽车厂商（车联网服务）</a><br><a onclick="_addStat(&#39;apidoc_guide6&#39;)" href="mailto:mapapi@baidu.com" onmouseover="openTip(&#39;hardwareTip&#39;)" onmouseout="closeTip(&#39;hardwareTip&#39;)">硬件制造厂商（手机、Pad等）</a>        <div id="hardwareTip" class="popTip"><span>地图需求的商业合作请发送邮件至mapapi@baidu.com</span></div></div></div></div></div><div class="dashline dashline_margin_bottom"><div class="dashline_left"></div></div><div class="item"><div class="item_left"><div class="guide_icon"><div class="xiaobai"></div></div><div class="guide_text"><div class="text_title">开发小白</div><div class="text_tip"><span>老板催得紧，不会开发，咋办呀？<br>这里一样潇洒用地图。</span></div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide7&#39;)" href="http://developer.baidu.com/map/tool.htm" target="_blank">立即进入</a></div></div></div></div><div class="solidline"></div><div class="title">我要...</div><div class="item item_short"><div class="item_left"><div class="guide_icon"><div class="position"></div></div><div class="guide_text"><div class="text_title">我要定位</div><div class="text_link link_zIndex"><a onclick="_addStat(&#39;apidoc_guide8&#39;)" href="http://developer.baidu.com/map/geosdk.htm" target="_blank">Android定位</a><a onclick="_addStat(&#39;apidoc_guide10&#39;)" href="javascript:void(0)" onmouseover="openTip(&#39;iosTip&#39;)" onmouseout="closeTip(&#39;iosTip&#39;)">iOS定位</a><div id="iosTip" class="popTip"><span>请使用iOS系统自带的定位功能。为啥我木有？去问乔布斯哈！</span></div></div></div></div><div class="item_right"><div class="guide_icon"><div class="process" style="background:url(static/img/nav_icon.png) no-repeat;"></div></div><div class="guide_text"><div class="text_title">我要导航</div><div class="text_tip"><span>Android导航</span>(<a href="http://developer.baidu.com/map/navsdk.htm" target="_blank">在线</a><a href="http://developer.baidu.com/map/android-fullnavsdk.htm" target="_blank" style="padding-right:0;">离线</a>)<span style="padding-left:5px;">iOS导航</span>(<a href="http://developer.baidu.com/map/sdk-nav-ios.htm" target="_blank">在线</a><a href="http://developer.baidu.com/map/ios-fullnavsdk.htm" target="_blank" style="padding-right:0;">离线</a>)</div></div></div></div><div class="dashline dashline_margin_bottom"><div class="dashline_left"></div><div class="dashline_right"></div></div><div class="item"><div class="item_left"><div class="guide_icon"><div class="process"></div></div><div class="guide_text"><div class="text_title">我要管理我的数据</div><div class="text_tip"><span>LBS云：帮您存、查、地图展示！</span></div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide11&#39;)" href="http://developer.baidu.com/map/lbs-cloud.htm" target="_blank">立即进入</a></div></div></div><div class="item_right"><div class="guide_icon"><div class="callbaidu"></div></div><div class="guide_text"><div class="text_title">我要调用百度地图</div><div class="text_tip"><span>从今以后这不再是梦！看位置、查公交<br>一键分享都变得那么简单！</span></div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide12&#39;)" href="http://developer.baidu.com/map/uri.htm" target="_blank">立即进入</a></div></div></div></div><div class="dashline dashline_margin_vertical"><div class="dashline_left"></div><div class="dashline_right"></div></div><div class="item"><div class="item_left"><div class="guide_icon"><div class="baidupoi"></div></div><div class="guide_text"><div class="text_title">我要搜索百度POI数据</div><div class="text_tip"><span>北京的购物中心、宾馆...<br>周边的餐馆、电影院...还有详情可以看！</span></div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide13&#39;)" href="http://developer.baidu.com/map/webservice-placeapi.htm" target="_blank">立即进入</a></div></div></div><div class="item_right"><div class="guide_icon"><div class="coord"></div></div><div class="guide_text"><div class="text_title">我要坐标 我要地址</div><div class="text_tip"><span>坐标与地址间的解析，Geocoding帮您搞定！</span></div><div class="text_link"><a onclick="_addStat(&#39;apidoc_guide14&#39;)" href="http://developer.baidu.com/map/webservice-geocoding.htm" target="_blank">立即进入</a></div></div></div><div class="item_right"><div class="more_problem"><a onclick="_addStat(&#39;apidoc_guide15&#39;)" href="http://developer.baidu.com/map/question.htm" target="_blank">更多问题...</a></div></div></div></div></div><div class="gf-con"><div class="gf-plugin" id="gf_to_top" style="display: none;"><a href="javascript:void(0)">返回顶部</a></div><div class="gf-plugin" id="gf_guide"><a href="javascript:openGuide();" onclick="_addStatNew(&#39;lbsapi_guanwang&#39;,{&#39;operate&#39;: &#39;guanwang_productclick&#39;})">产品指引</a></div><div class="gf-plugin" id="gf_for_help"><a href="http://developer.baidu.com/map/help_index.html" onclick="_addStatNew(&#39;lbsapi_guanwang&#39;,{&#39;operate&#39;: &#39;guanwang_helpclick&#39;})">合作咨询</a></div><div class="gf-plugin" id="gf_suggestion"><a href="http://bbs.lbsyun.baidu.com/" onclick="_addStatNew(&#39;lbsapi_guanwang&#39;,{&#39;operate&#39;: &#39;guanwang_feedbackclick&#39;})">意见反馈</a></div></div></body></html>
